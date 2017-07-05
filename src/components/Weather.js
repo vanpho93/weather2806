@@ -11,10 +11,15 @@ export default class Weather extends Component {
             temp: null
         };
         this.onReceiveTemp = this.onReceiveTemp.bind(this);
+        this.toggleIsLoading = this.toggleIsLoading.bind(this);
     }
 
     onReceiveTemp(cityName, temp) {
-        this.setState({ cityName, temp });
+        this.setState({ cityName, temp, isLoading: false });
+    }
+
+    toggleIsLoading() {
+        this.setState({ isLoading: !this.state.isLoading });
     }
 
     render() {
@@ -29,6 +34,7 @@ export default class Weather extends Component {
                 />
                 <WeatherForm 
                     handleOnReceiveTemp={this.onReceiveTemp}
+                    handleToggleIsLoading={this.toggleIsLoading}
                 />
             </div>
         );
