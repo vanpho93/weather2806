@@ -11,7 +11,7 @@ export default class WeatherForm extends Component {
         const cityName = this.refs.txtCityName.value;
         this.refs.txtCityName.value = '';
         getTemp(cityName)
-        .then(temp => console.log(temp));
+        .then(temp => this.props.handleOnReceiveTemp(cityName, temp));
     }
 
     render() {
