@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Weather from './components/Weather';
 
 ReactDOM.render(
-    <h1>New Project</h1>,
+    <Weather />,
     document.getElementById('root') // eslint-disable-line
 );
