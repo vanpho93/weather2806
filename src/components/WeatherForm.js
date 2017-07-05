@@ -9,10 +9,11 @@ export default class WeatherForm extends Component {
 
     onGetTemp() {
         this.props.handleToggleIsLoading();
-        const cityName = this.refs.txtCityName.value;
-        this.refs.txtCityName.value = '';
-        getTemp(cityName)
-        .then(temp => this.props.handleOnReceiveTemp(cityName, temp));
+        this.props.handleToggleIsLoading();
+        // const cityName = this.refs.txtCityName.value;
+        // this.refs.txtCityName.value = '';
+        // getTemp(cityName)
+        // .then(temp => this.props.handleOnReceiveTemp(cityName, temp));
     }
 
     render() {

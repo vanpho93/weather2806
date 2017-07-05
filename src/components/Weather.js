@@ -19,7 +19,8 @@ export default class Weather extends Component {
     }
 
     toggleIsLoading() {
-        this.setState({ isLoading: !this.state.isLoading });
+        this.setState(prevState => ({ isLoading: !prevState.isLoading }));
+        // this.setState({ isLoading: !this.state.isLoading });
     }
 
     render() {
