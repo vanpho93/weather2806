@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
 import Word from './Word';
+import getList from '../api/getList';
 
 export default class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            arrWords:
-            [
-                {
-                    id: 1,
-                    en: 'action',
-                    vn: 'hành động',
-                },
-                {
-                    id: 2,
-                    en: 'actor',
-                    vn: 'diễn viên',
-                },
-                {
-                    id: 3,
-                    en: 'activity',
-                    vn: 'hoạt động',
-                }]
+            arrWords: []
         };
+    }
+
+    componentDidMount() {
+        getList()
+        .then(list => this.setState({ arrWords: list }));
     }
 
     render() {
         return (
             <div>
-                {this.state.arrWords.map(e => <Word key={e.id} />)}
+                {this.state.arrWords.map(e => <Word key={e.id} en={e.en} vn={e.vn} />)}
             </div>
         );
     }
