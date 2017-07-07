@@ -31,3 +31,4 @@ export default class WeatherForm extends Component {
         );
     }
 }
+
