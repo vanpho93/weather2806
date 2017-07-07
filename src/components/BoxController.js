@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-export default class BoxController extends Component {
+class BoxController extends Component {
     render() {
         return (
             <div>
-                 <button>+</button>
-                 <button>-</button>
+                <button onClick={() => this.props.dispatch({ type: 'UP' })}>
+                +</button>
+                <button onClick={() => this.props.dispatch({ type: 'UP' })}>
+                -</button>
             </div>
         );
     }
 }
+
+export default connect()(BoxController);
