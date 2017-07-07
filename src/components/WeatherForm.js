@@ -12,7 +12,11 @@ export default class WeatherForm extends Component {
         const cityName = this.refs.txtCityName.value;
         this.refs.txtCityName.value = '';
         getTemp(cityName)
-        .then(temp => this.props.handleOnReceiveTemp(cityName, temp));
+        .then(temp => this.props.handleOnReceiveTemp(cityName, temp))
+        .catch(() => {
+            alert('Can not find city');// eslint-disable-line
+            this.props.handleError();
+        });
     }
 
     render() {

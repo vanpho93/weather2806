@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from './components/List';
+import Weather from './components/Weather';
 
 ReactDOM.render(
-    <List />,
+    <Weather />,
     document.getElementById('root') // eslint-disable-line
 );
