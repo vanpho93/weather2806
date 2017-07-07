@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+// import { createStore, compose } from 'redux';
+const redux = require('redux');
 //state mac dinh
 const defaultState = {
     isLoading: false,
@@ -21,5 +22,5 @@ const reducer = (state = defaultState, action) => {
 };
 
 //store
-const store = createStore(reducer);
+const store = redux.createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
