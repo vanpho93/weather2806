@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import getTemp from '../api/getTemp';
 
-export default class WeatherForm extends Component {
+class WeatherForm extends Component {
     constructor(props) {
         super(props);
         this.onGetTemp = this.onGetTemp.bind(this);
     }
 
     onGetTemp() {
-        this.props.handleToggleIsLoading();
+        this.props.dispatch({ type: 'TIM_KIEM' });
         const cityName = this.refs.txtCityName.value;
         this.refs.txtCityName.value = '';
         getTemp(cityName)
-        .then(temp => this.props.handleOnReceiveTemp(cityName, temp))
+        .then(temp => { 
+            const action = { type: 'TIM_KIEM_THANH_CONG', temp, cityName };
+            this.props.dispatch(action);
+        })
         .catch(() => {
             alert('Can not find city');// eslint-disable-line
-            this.props.handleError();
+            this.props.dispatch({ type: 'TIM_KIEM_THAT_BAI' });
         });
     }
 
@@ -32,3 +36,4 @@ export default class WeatherForm extends Component {
     }
 }
 
+export default connect()(WeatherForm);
