@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import getTemp from '../api/getTemp';
+import * as actionCreator from '../redux/actionCreator';
 
 class WeatherForm extends Component {
     constructor(props) {
@@ -9,17 +10,15 @@ class WeatherForm extends Component {
     }
 
     onGetTemp() {
-        this.props.dispatch({ type: 'TIM_KIEM' });
+        this.props.timKiem();
+        // this.props.timKiem();
         const cityName = this.refs.txtCityName.value;
         this.refs.txtCityName.value = '';
         getTemp(cityName)
-        .then(temp => { 
-            const action = { type: 'TIM_KIEM_THANH_CONG', temp, cityName };
-            this.props.dispatch(action);
-        })
+        .then(temp => this.props.timKiemThanhCong(cityName, temp))
         .catch(() => {
             alert('Can not find city');// eslint-disable-line
-            this.props.dispatch({ type: 'TIM_KIEM_THAT_BAI' });
+            this.props.timKiemThatBai();
         });
     }
 
@@ -36,4 +35,4 @@ class WeatherForm extends Component {
     }
 }
 
-export default connect()(WeatherForm);
+export default connect(null, actionCreator)(WeatherForm);
