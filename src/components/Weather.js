@@ -28,15 +28,10 @@ export default class Weather extends Component {
     }
 
     render() {
-        const { isLoading, cityName, temp } = this.state;
         return (
             <div>
                 <h3>Weather Component</h3>
-                <WeatherMessage 
-                    isLoading={isLoading}
-                    cityName={cityName}
-                    temp={temp}
-                />
+                <WeatherMessage />
                 <WeatherForm 
                     handleOnReceiveTemp={this.onReceiveTemp}
                     handleToggleIsLoading={this.toggleIsLoading}
