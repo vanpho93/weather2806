@@ -6,7 +6,8 @@
     "babel-preset-react": "^6.24.1",
     "eslint-config-rallycoding": "^3.2.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "redux-thunk": "^2.2.0"
   },
   "dependencies": {
     "react-redux": "^5.0.5",

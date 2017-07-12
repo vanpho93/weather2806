@@ -10,16 +10,9 @@ class WeatherForm extends Component {
     }
 
     onGetTemp() {
-        this.props.timKiem();
-        // this.props.timKiem();
         const cityName = this.refs.txtCityName.value;
         this.refs.txtCityName.value = '';
-        getTemp(cityName)
-        .then(temp => this.props.timKiemThanhCong(cityName, temp))
-        .catch(() => {
-            alert('Can not find city');// eslint-disable-line
-            this.props.timKiemThatBai();
-        });
+        this.props.getTempByCity(cityName);
     }
 
     render() {

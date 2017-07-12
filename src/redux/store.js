@@ -1,4 +1,5 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 const defaultState = {
     isLoading: false,
@@ -16,5 +17,5 @@ const reducer = (state = defaultState, action) => {
 
 //store
 const toCompose = window.devToolsExtension ? window.devToolsExtension() : f => f; // eslint-disable-line
-const store = createStore(reducer, compose(toCompose));
+const store = createStore(reducer, applyMiddleware(thunk));
 export default store;
