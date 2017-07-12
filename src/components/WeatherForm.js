@@ -10,13 +10,11 @@ class WeatherForm extends Component {
 
     onGetTemp() {
         const cityName = this.refs.txtCityName.value;
-        console.log(a);
         this.refs.txtCityName.value = '';
         this.props.getTempByCity(cityName);
     }
 
     render() {
-        console.log('RENDER');
         return (
             <div>
                 <br />

@@ -11463,14 +11463,12 @@ var WeatherForm = function (_Component) {
         key: 'onGetTemp',
         value: function onGetTemp() {
             var cityName = this.refs.txtCityName.value;
-            console.log(a);
             this.refs.txtCityName.value = '';
             this.props.getTempByCity(cityName);
         }
     }, {
         key: 'render',
         value: function render() {
-            console.log('RENDER');
             return _react2.default.createElement(
                 'div',
                 null,
@@ -11578,9 +11576,6 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(WeatherMessage);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.timKiem = timKiem;
-exports.timKiemThatBai = timKiemThatBai;
-exports.timKiemThanhCong = timKiemThanhCong;
 exports.getTempByCity = getTempByCity;
 
 var _getTemp = __webpack_require__(54);
