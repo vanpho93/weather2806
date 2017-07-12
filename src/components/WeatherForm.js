@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import getTemp from '../api/getTemp';
 import * as actionCreator from '../redux/actionCreator';
 
 class WeatherForm extends Component {
@@ -11,6 +10,7 @@ class WeatherForm extends Component {
 
     onGetTemp() {
         const cityName = this.refs.txtCityName.value;
+        console.log(a);
         this.refs.txtCityName.value = '';
         this.props.getTempByCity(cityName);
     }
